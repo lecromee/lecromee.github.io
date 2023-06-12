@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Greek geek</title>
+    <link>http://example.org/</link>
+    <description>Recent content on Greek geek</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 04 Jun 2023 03:28:19 +0500</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Swing VPN app is a DDOS botnet</title>
+      <link>http://example.org/posts/swing_vpn_ddosing_sites/</link>
+      <pubDate>Sun, 04 Jun 2023 03:28:19 +0500</pubDate>
+      
+      <guid>http://example.org/posts/swing_vpn_ddosing_sites/</guid>
+      <description>tldr: Swing VPN is using its user base to DDOS sites using its users as a an attack botnet.
+Introduction It all started with a friend of mine complaining that his phone was doing a request to a specific app every few seconds. Initial assumption was that the phone was infected with a virus but a 2 minute investigation showed that all requests went from &amp;lsquo;Swing VPN&amp;rsquo; app which were legitimately installed on the phone as VPN service.</description>
+    </item>
+    
+    <item>
+      <title>Init</title>
+      <link>http://example.org/posts/init/</link>
+      <pubDate>Mon, 15 May 2023 03:27:59 +0500</pubDate>
+      
+      <guid>http://example.org/posts/init/</guid>
+      <description>About me Hello I do like doing crazy experiments and testing new stuff.
+Mail: I personally prefer a mail hosting in proton.me and my favourite handle there is &amp;rsquo;lecromee&#39;.
+In case you like math, here are my favorite numbers.
+Bitcoin: 19ELnxocZnqwjUipL8jmMsF78BxWnypRP
+Etherium: abc002968B6576cf2391fddE3EFC3d10D78bFd56</description>
+    </item>
+    
+  </channel>
+</rss>
