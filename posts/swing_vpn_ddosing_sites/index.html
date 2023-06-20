@@ -7,7 +7,7 @@
     <title>Swing VPN app is a DDOS botnet | Greek geek</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="tldr: Swing VPN is using its user base to DDOS sites using its users as a an attack botnet.
-new: Some people wrote me saying that the DDOS is not happening on ios devices. Just did a quick check and you guys are right. iOS app is using different way to do VPN and also does not do anything suspicious. I should appologize to you and to Appstore team for my lazy extrapolation without actually checking it.">
+Introduction It all started with a friend of mine complaining that his phone was doing a request to a specific app every few seconds. Initial assumption was that the phone was infected with a virus but a 2 minute investigation showed that all requests went from &lsquo;Swing VPN&rsquo; app which were legitimately installed on the phone as VPN service.">
     <meta name="generator" content="Hugo 0.112.3">
     
     
@@ -32,20 +32,20 @@ new: Some people wrote me saying that the DDOS is not happening on ios devices. 
     
     <meta property="og:title" content="Swing VPN app is a DDOS botnet" />
 <meta property="og:description" content="tldr: Swing VPN is using its user base to DDOS sites using its users as a an attack botnet.
-new: Some people wrote me saying that the DDOS is not happening on ios devices. Just did a quick check and you guys are right. iOS app is using different way to do VPN and also does not do anything suspicious. I should appologize to you and to Appstore team for my lazy extrapolation without actually checking it." />
+Introduction It all started with a friend of mine complaining that his phone was doing a request to a specific app every few seconds. Initial assumption was that the phone was infected with a virus but a 2 minute investigation showed that all requests went from &lsquo;Swing VPN&rsquo; app which were legitimately installed on the phone as VPN service." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://example.org/posts/swing_vpn_ddosing_sites/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-06-04T03:28:19+05:00" />
 <meta property="article:modified_time" content="2023-06-04T03:28:19+05:00" />
 <meta itemprop="name" content="Swing VPN app is a DDOS botnet">
 <meta itemprop="description" content="tldr: Swing VPN is using its user base to DDOS sites using its users as a an attack botnet.
-new: Some people wrote me saying that the DDOS is not happening on ios devices. Just did a quick check and you guys are right. iOS app is using different way to do VPN and also does not do anything suspicious. I should appologize to you and to Appstore team for my lazy extrapolation without actually checking it."><meta itemprop="datePublished" content="2023-06-04T03:28:19+05:00" />
+Introduction It all started with a friend of mine complaining that his phone was doing a request to a specific app every few seconds. Initial assumption was that the phone was infected with a virus but a 2 minute investigation showed that all requests went from &lsquo;Swing VPN&rsquo; app which were legitimately installed on the phone as VPN service."><meta itemprop="datePublished" content="2023-06-04T03:28:19+05:00" />
 <meta itemprop="dateModified" content="2023-06-04T03:28:19+05:00" />
-<meta itemprop="wordCount" content="3147">
+<meta itemprop="wordCount" content="3060">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Swing VPN app is a DDOS botnet"/>
 <meta name="twitter:description" content="tldr: Swing VPN is using its user base to DDOS sites using its users as a an attack botnet.
-new: Some people wrote me saying that the DDOS is not happening on ios devices. Just did a quick check and you guys are right. iOS app is using different way to do VPN and also does not do anything suspicious. I should appologize to you and to Appstore team for my lazy extrapolation without actually checking it."/>
+Introduction It all started with a friend of mine complaining that his phone was doing a request to a specific app every few seconds. Initial assumption was that the phone was infected with a virus but a 2 minute investigation showed that all requests went from &lsquo;Swing VPN&rsquo; app which were legitimately installed on the phone as VPN service."/>
 
 	
   </head>
@@ -120,12 +120,6 @@ new: Some people wrote me saying that the DDOS is not happening on ios devices. 
     </header>
     
     <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p><strong>tldr</strong>: Swing VPN is using its user base to DDOS sites using its users as a an attack botnet.</p>
-<p><strong>new</strong>: Some people wrote me saying that the DDOS is not happening on ios
-devices. Just did a quick check and you guys are right. iOS app is using
-different way to do VPN and also does not do anything suspicious. I should
-appologize to you and to Appstore team for my lazy extrapolation without
-actually checking it. Unfortunately I don&rsquo;t have much time to fix the article
-right now, so please just ignore anything ios related below this line.</p>
 <h2 id="introduction">Introduction</h2>
 <p>It all started with a friend of mine complaining that his phone was doing a
 request to a specific app every few seconds. Initial assumption was that the
@@ -228,7 +222,7 @@ be able to handle for a small site written probably in PHP.</p>
 
 <p>While doing this little investigation I found out that the app does not care
 about privacy. It probably added the button &lsquo;I Accept the privacy policy&rsquo; just
-to make appstore and playstore accept the app but in reality it is just a button
+to make playstore accept the app but in reality it is just a button
 that does not do anything. In the video above I installed a fresh version of
 Swing VPN from playstore and then instead of pressing &lsquo;I Accept the privacy policy&rsquo;
 button I pressed which leads to &lsquo;Privacy Policy&rsquo; screen. And while I was
@@ -629,7 +623,7 @@ services. They use different techniques to obfuscate and hide their malicious
 actions in order to try to go undetected. That is main reason for why they send
 the request every few seconds as with the amount of install base they have it is
 enough to bring the services down but still not fire security alarms in
-appstore and playstore security teams. But if for some reason they decide that
+playstore security teams. But if for some reason they decide that
 the pressure on the service is not enough they could easily send command to
 their apps and force the to storm those services with useless requests.</p>
 <p>Apart from malicious actions toward some innocent services I think it is really
@@ -638,8 +632,8 @@ do not respect their privacy and use users phones as a botnet. The reason it is
 very shady is that they already collect money from users by either show them ads
 or by selling monthly VIP services. It is from pure greed they also want use
 innocent users phones as a tool in their criminal actions.</p>
-<p><strong>I have to give props for Swing VPN teams creativity to bypass security measure of Apple
-appstore and Google PlayStore but it is sad that Apple/Google security systems does not
+<p><strong>I have to give props for Swing VPN teams creativity to bypass security measure of
+Google PlayStore but it is sad that Google security systems does not
 have some automated ways to detect these types of actions.</strong></p>
 <p>If you have any questions about my methods, if you found any factual errors
 (don&rsquo;t send me typography corrections) or if I missed something important please
