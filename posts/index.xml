@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Greek geek</title>
-    <link>http://example.org/</link>
-    <description>Recent content on Greek geek</description>
+    <title>Posts on Greek geek</title>
+    <link>http://example.org/posts/</link>
+    <description>Recent content in Posts on Greek geek</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Jun 2023 03:28:19 +0500</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Jun 2023 03:28:19 +0500</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Swing VPN app is a DDOS botnet</title>
       <link>http://example.org/posts/swing_vpn_ddosing_sites/</link>
