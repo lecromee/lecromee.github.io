@@ -2,27 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Greek geek</title>
-    <link>http://example.org/posts/</link>
+    <link>https://lecromee.github.io/posts/</link>
     <description>Recent content in Posts on Greek geek</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Jun 2023 03:28:19 +0500</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Jun 2023 03:27:59 +0500</lastBuildDate><atom:link href="https://lecromee.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Google stopped indexing sites automatically</title>
+      <link>https://lecromee.github.io/posts/search_engines/</link>
+      <pubDate>Sun, 25 Jun 2023 03:27:59 +0500</pubDate>
+      
+      <guid>https://lecromee.github.io/posts/search_engines/</guid>
+      <description>P.S: and other search engines.
+Intro This all started with with me stumbling upon an article in hackernews about google not indexing sites that are not are not added to google manually. This seemed quite odd since I remember that it took at most 3-4 days for google to pickup any sites in the past. After discussion with a couple of my friends who actually do this for a living they convinced me that the guy was just wrong and google works as expected.</description>
+    </item>
+    
     <item>
       <title>Swing VPN app is a DDOS botnet</title>
-      <link>http://example.org/posts/swing_vpn_ddosing_sites/</link>
+      <link>https://lecromee.github.io/posts/swing_vpn_ddosing_sites/</link>
       <pubDate>Sun, 04 Jun 2023 03:28:19 +0500</pubDate>
       
-      <guid>http://example.org/posts/swing_vpn_ddosing_sites/</guid>
+      <guid>https://lecromee.github.io/posts/swing_vpn_ddosing_sites/</guid>
       <description>tldr: Swing VPN is using its user base to DDOS sites using its users as a an attack botnet.
 Introduction It all started with a friend of mine complaining that his phone was doing a request to a specific app every few seconds. Initial assumption was that the phone was infected with a virus but a 2 minute investigation showed that all requests went from &amp;lsquo;Swing VPN&amp;rsquo; app which were legitimately installed on the phone as VPN service.</description>
     </item>
     
     <item>
       <title>Init</title>
-      <link>http://example.org/posts/init/</link>
+      <link>https://lecromee.github.io/posts/init/</link>
       <pubDate>Mon, 15 May 2023 03:27:59 +0500</pubDate>
       
-      <guid>http://example.org/posts/init/</guid>
+      <guid>https://lecromee.github.io/posts/init/</guid>
       <description>About me Hello I do like doing crazy experiments and testing new stuff.
 Mail: Click to show email In case you like math, here are my favorite numbers.
 Bitcoin: 19ELnxocZnqwjUipL8jmMsF78BxWnypRP
