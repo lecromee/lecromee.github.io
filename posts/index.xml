@@ -6,15 +6,14 @@
     <description>Recent content in Posts on Greek geek</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 25 Jun 2023 03:27:59 +0500</lastBuildDate><atom:link href="https://lecromee.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Jun 2023 03:27:59 +0500</lastBuildDate><atom:link href="https://lecromee.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Google stopped indexing sites automatically</title>
-      <link>https://lecromee.github.io/posts/search_engines/</link>
-      <pubDate>Sun, 25 Jun 2023 03:27:59 +0500</pubDate>
+      <title>Google (and others) stopped indexing sites automatically</title>
+      <link>https://lecromee.github.io/posts/google_not_autoindexing/</link>
+      <pubDate>Thu, 29 Jun 2023 03:27:59 +0500</pubDate>
       
-      <guid>https://lecromee.github.io/posts/search_engines/</guid>
-      <description>P.S: and other search engines.
-Intro This all started with with me stumbling upon an article in hackernews about google not indexing sites that are not are not added to google manually. This seemed quite odd since I remember that it took at most 3-4 days for google to pickup any sites in the past. After discussion with a couple of my friends who actually do this for a living they convinced me that the guy was just wrong and google works as expected.</description>
+      <guid>https://lecromee.github.io/posts/google_not_autoindexing/</guid>
+      <description>Intro This all started with with me stumbling upon an article in hackernews about google not indexing sites that are not are not added to google manually. This seemed quite odd since I remember that it took at most 3-4 days for google to pickup any sites in the past. After discussion with a couple of my friends who actually do this for a living they convinced me that the guy was just wrong and google works as expected.</description>
     </item>
     
     <item>
