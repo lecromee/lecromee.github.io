@@ -13,7 +13,8 @@
       <pubDate>Thu, 29 Jun 2023 03:27:59 +0500</pubDate>
       
       <guid>https://lecromee.github.io/posts/google_not_autoindexing/</guid>
-      <description>Intro This all started with with me stumbling upon an article in hackernews about google not indexing sites that are not are not added to google manually. This seemed quite odd since I remember that it took at most 3-4 days for google to pickup any sites in the past. After discussion with a couple of my friends who actually do this for a living they convinced me that the guy was just wrong and google works as expected.</description>
+      <description>Before here was my rambling about how google and other search engines are not indexing this site. But I wrote that I did my initial research. But now I did a deep dive into all SEO stuff and found that the theme that I use had a metatag
+&amp;lt;meta name=&amp;#34;robots&amp;#34; content=&amp;#34;noindex, nofollow&amp;#34;&amp;gt; and required special configuration for it to change to &amp;lsquo;index, follow&amp;rsquo;. So I will change it today and see give it more time for search engines to catch up.</description>
     </item>
     
     <item>
