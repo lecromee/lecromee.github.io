@@ -4,40 +4,30 @@
     <title>Greek geek</title>
     <link>https://lecromee.github.io/</link>
     <description>Recent content on Greek geek</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Jun 2023 03:27:59 +0500</lastBuildDate><atom:link href="https://lecromee.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Aug 2024 03:28:19 +0500</lastBuildDate>
+    <atom:link href="https://lecromee.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Google (and others) stopped indexing sites automatically</title>
-      <link>https://lecromee.github.io/posts/google_not_autoindexing/</link>
-      <pubDate>Thu, 29 Jun 2023 03:27:59 +0500</pubDate>
-      
-      <guid>https://lecromee.github.io/posts/google_not_autoindexing/</guid>
-      <description>Before here was my rambling about how google and other search engines are not indexing this site. But I wrote that I did my initial research. But now I did a deep dive into all SEO stuff and found that the theme that I use had a metatag
-&amp;lt;meta name=&amp;#34;robots&amp;#34; content=&amp;#34;noindex, nofollow&amp;#34;&amp;gt; and required special configuration for it to change to &amp;lsquo;index, follow&amp;rsquo;. So I will change it today and see give it more time for search engines to catch up.</description>
+      <title>Exploring inner workings of a random free android VPN</title>
+      <link>https://lecromee.github.io/posts/bd_net_vpn/</link>
+      <pubDate>Thu, 15 Aug 2024 03:28:19 +0500</pubDate>
+      <guid>https://lecromee.github.io/posts/bd_net_vpn/</guid>
+      <description>Introduction Nothing special here. Got some free time to play around and decided to explore a free VPN from android play store in hopes to find something interesting, solve some riddle and just have fun. For this experiment I chose &amp;ldquo;BD NET VPN&amp;rdquo;. It is freely avaible for any android phone from Google play store: BD NET VPN. There is nothing special in it. My interest grabbed that it was loading it encrypted configuration stored in github and I have experience finding interesting apps that use this method (not this time though).</description>
     </item>
-    
     <item>
       <title>Swing VPN app is a DDOS botnet</title>
       <link>https://lecromee.github.io/posts/swing_vpn_ddosing_sites/</link>
       <pubDate>Sun, 04 Jun 2023 03:28:19 +0500</pubDate>
-      
       <guid>https://lecromee.github.io/posts/swing_vpn_ddosing_sites/</guid>
-      <description>tldr: Swing VPN is using its user base to DDOS sites using its users as a an attack botnet.
-Introduction It all started with a friend of mine complaining that his phone was doing a request to a specific app every few seconds. Initial assumption was that the phone was infected with a virus but a 2 minute investigation showed that all requests went from &amp;lsquo;Swing VPN&amp;rsquo; app which were legitimately installed on the phone as VPN service.</description>
+      <description>tldr: Swing VPN is using its user base to DDOS sites using its users as a an attack botnet.&#xA;Introduction It all started with a friend of mine complaining that his phone was doing a request to a specific app every few seconds. Initial assumption was that the phone was infected with a virus but a 2 minute investigation showed that all requests went from &amp;lsquo;Swing VPN&amp;rsquo; app which were legitimately installed on the phone as VPN service.</description>
     </item>
-    
     <item>
       <title>Init</title>
       <link>https://lecromee.github.io/posts/init/</link>
       <pubDate>Mon, 15 May 2023 03:27:59 +0500</pubDate>
-      
       <guid>https://lecromee.github.io/posts/init/</guid>
-      <description>About me Hello I do like doing crazy experiments and testing new stuff.
-Mail: Click to show email In case you like math, here are my favorite numbers.
-Bitcoin: 19ELnxocZnqwjUipL8jmMsF78BxWnypRP
-Etherium: abc002968B6576cf2391fddE3EFC3d10D78bFd56</description>
+      <description>About me Hello I do like doing crazy experiments and testing new stuff.&#xA;Mail: Click to show email In case you like math, here are my favorite numbers.&#xA;Bitcoin: 19ELnxocZnqwjUipL8jmMsF78BxWnypRP&#xA;Etherium: abc002968B6576cf2391fddE3EFC3d10D78bFd56</description>
     </item>
-    
   </channel>
 </rss>

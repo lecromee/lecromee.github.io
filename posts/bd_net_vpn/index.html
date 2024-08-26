@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Exploring inner workings of a random free android VPN | Greek geek</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Introduction Nothing special here. Got some free time to play around and decided to explore a free VPN from android play store in hopes to find something interesting, solve some riddle and just have fun. For this experiment I chose &ldquo;BD NET VPN&rdquo;. It is freely avaible for any android phone from Google play store: BD NET VPN. There is nothing special in it. My interest grabbed that it was loading it encrypted configuration stored in github and I have experience finding interesting apps that use this method (not this time though).">
+    <meta name="generator" content="Hugo 0.128.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:url" content="https://lecromee.github.io/posts/bd_net_vpn/">
+  <meta property="og:site_name" content="Greek geek">
+  <meta property="og:title" content="Exploring inner workings of a random free android VPN">
+  <meta property="og:description" content="Introduction Nothing special here. Got some free time to play around and decided to explore a free VPN from android play store in hopes to find something interesting, solve some riddle and just have fun. For this experiment I chose “BD NET VPN”. It is freely avaible for any android phone from Google play store: BD NET VPN. There is nothing special in it. My interest grabbed that it was loading it encrypted configuration stored in github and I have experience finding interesting apps that use this method (not this time though).">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-08-15T03:28:19+05:00">
+    <meta property="article:modified_time" content="2024-08-15T03:28:19+05:00">
+
+  <meta itemprop="name" content="Exploring inner workings of a random free android VPN">
+  <meta itemprop="description" content="Introduction Nothing special here. Got some free time to play around and decided to explore a free VPN from android play store in hopes to find something interesting, solve some riddle and just have fun. For this experiment I chose “BD NET VPN”. It is freely avaible for any android phone from Google play store: BD NET VPN. There is nothing special in it. My interest grabbed that it was loading it encrypted configuration stored in github and I have experience finding interesting apps that use this method (not this time though).">
+  <meta itemprop="datePublished" content="2024-08-15T03:28:19+05:00">
+  <meta itemprop="dateModified" content="2024-08-15T03:28:19+05:00">
+  <meta itemprop="wordCount" content="2368">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Exploring inner workings of a random free android VPN">
+  <meta name="twitter:description" content="Introduction Nothing special here. Got some free time to play around and decided to explore a free VPN from android play store in hopes to find something interesting, solve some riddle and just have fun. For this experiment I chose “BD NET VPN”. It is freely avaible for any android phone from Google play store: BD NET VPN. There is nothing special in it. My interest grabbed that it was loading it encrypted configuration stored in github and I have experience finding interesting apps that use this method (not this time though).">
+
+	
+
+    <script src="/js/utils.js"></script>
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Greek geek
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts/init" title="Contacts page">
+              Contacts
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Exploring inner workings of a random free android VPN</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2024-08-15T03:28:19+05:00">August 15, 2024</time>
+      
+
+      
+      
+    </header>
+    
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><h2 id="introduction">Introduction</h2>
+<p>Nothing special here. Got some free time to play around and decided to explore
+a free VPN from android play store in hopes to find something interesting, solve
+some riddle and just have fun. For this experiment I chose <strong>&ldquo;BD NET VPN&rdquo;</strong>. It
+is freely avaible for any android phone from <a href="https://play.google.com/store/apps/details?id=dastan.prince.bdfreevpn&amp;hl=en">Google play store: BD NET VPN</a>.
+There is nothing special in it. My interest grabbed that it was loading it
+encrypted configuration stored in github and I have experience finding
+interesting apps that use this method (not this time though).</p>
+<h2 id="action">Action</h2>
+<p>After some playing with the app I found that it was loading it&rsquo;s configuration
+from <a href="https://raw.githubusercontent.com/panigbatanc/BDNET2023/main/JSONDNSTT">this github file</a>.
+It is a file that looks like</p>
+<pre tabindex="0"><code>bZgJB3mu...........z9Xww7QQ==
+</code></pre><p>Currently it is a 650+ KB file which is base64 encoded binary data.</p>
+<p>Initially I wanted to just attach to the process and read the output after
+program deciphers it itself got tricked into wasting some time figuring out what
+I was doing incorrectly because the app just didn&rsquo;t want to work. The app itself
+is distributed as <strong>xapk</strong> which is just a another zip on top of original apk
+file with additional extra files. In this version it contained several apk in
+one xapk.</p>
+<p>I spent some time trying different ways to merge all those files into one single
+apk so that I could preprocess it with frida. The issue was that doing so with a
+rooted phone and automatic frida attachment didn&rsquo;t work due the app being aware
+of that is running on a rooted phone and just crash. So after serveral different
+approaches not leading me to intended outcome I decided not to use frida for now
+and instead try other ways and come back it if nothing else works.</p>
+<p>The problem with patching apk was that app checks for it&rsquo;s hash file and if it
+is not matching hardcoded hash it just does not work. By the time I figured
+that it comparing hash and the location of that hash I already figured out
+everything I wanted and didn&rsquo;t need frida anymore.</p>
+<h2 id="decryption-of-internal-strings">Decryption of internal strings</h2>
+<p>After decompiling of the apk I started looking into finding some familiar
+strings that I cool start my exploration from. Regular file browsing and then
+grepping didn&rsquo;t give any valuable output. Even after searching for &lsquo;github&rsquo; I
+couldn&rsquo;t find anything. It turned out that they encrypted all the strings used
+with the app and all places where there supposed to be string it had some large
+&ldquo;long signed&rdquo; numbers.</p>
+<p>Eventually I found byte code responsibe for string decryption and after
+some researching I found that they used <strong><a href="https://github.com/MichaelRocks/paranoid">paranoid library</a></strong>
+for string encryption. So instead of regular</p>
+<pre tabindex="0"><code>someView.setText(&#34;Does it work?&#34;);
+</code></pre><p>they used something like:</p>
+<pre tabindex="0"><code>someView.setText(Deobfuscator.getString(0));
+</code></pre><p>which in turn compiled into something like:</p>
+<pre tabindex="0"><code>someView.setText(tp.a(-32738271919007L));
+</code></pre><p>This littered decopiled code with a lot of &ldquo;signed long&rdquo; numbers. To convert
+this back to normal text we need to used deobfuscator. I took their code and
+slightly modified it for my own purposes. Here is how looks:</p>
+<pre tabindex="0"><code>public class Deobfuscator {
+    public static final int MAX_CHUNK_LENGTH = 0x1fff;
+
+    private static final String[] chunks;
+    static {
+        String [] r0 = new String[5];
+        chunks = r0;
+        r0[0] = array_block0;
+        r0[1] = array_block1;
+        r0[2] = array_block2;
+        r0[3] = array_block3;
+        r0[4] = array_block4;
+    }
+
+    public static long seed(final long x) {
+        final long z = (x ^ (x &gt;&gt;&gt; 33)) * 0x62a9d9ed799705f5L;
+        return ((z ^ (z &gt;&gt;&gt; 28)) * 0xcb24d0a5c88c35b3L) &gt;&gt;&gt; 32;
+    }
+
+    public static long next(final long state) {
+        short s0 = (short) (state &amp; 0xffff);
+        short s1 = (short) ((state &gt;&gt;&gt; 16) &amp; 0xffff);
+        short next = s0;
+        next += s1;
+        next = rotl(next, 9);
+        next += s0;
+
+        s1 ^= s0;
+        s0 = rotl(s0, 13);
+        s0 ^= s1;
+        s0 ^= (s1 &lt;&lt; 5);
+        s1 = rotl(s1, 10);
+
+        long result = next;
+        result &lt;&lt;= 16;
+        result |= s1;
+        result &lt;&lt;= 16;
+        result |= s0;
+        return result;
+    }
+
+    private static short rotl(final short x, final int k) {
+        return (short) ((x &lt;&lt; k) | (x &gt;&gt;&gt; (32 - k)));
+    }
+
+    public static String getString(final long id, final String[] chunks) {
+        long state = seed(id &amp; 0xffffffffL);
+        state = next(state);
+        final long low = (state &gt;&gt;&gt; 32) &amp; 0xffff;
+        state = next(state);
+        final long high = (state &gt;&gt;&gt; 16) &amp; 0xffff0000;
+        final int index = (int) ((id &gt;&gt;&gt; 32) ^ low ^ high);
+        state = getCharAt(index, chunks, state);
+        final int length = (int) ((state &gt;&gt;&gt; 32) &amp; 0xffffL);
+        final char[] chars = new char[length];
+
+        for (int i = 0; i &lt; length; ++i) {
+            state = getCharAt(index + i + 1, chunks, state);
+            chars[i] = (char) ((state &gt;&gt;&gt; 32) &amp; 0xffffL);
+        }
+
+        return new String(chars);
+    }
+
+    private static long getCharAt(final int charIndex, final String[] chunks, final long state) {
+        final long nextState = next(state);
+        final String chunk = chunks[charIndex / MAX_CHUNK_LENGTH];
+        return nextState ^ ((long) chunk.charAt(charIndex % MAX_CHUNK_LENGTH) &lt;&lt; 32);
+    }
+
+    public static void main(String[] args) {
+        System.out.print(Deobfuscator.getString(Long.parseLong(args[0]), chunks));
+    }
+}
+</code></pre><p>**array_block0, array_block1, array_block2, array_block3, array_block4 ** are
+just blocks of utf8 string text that is used for the algorithm during decoding
+phase. I fished it out from apk file. In total they are 8191 + 8191 + 8191 +8191 + 2472 = 35236
+bytes of data. I didn&rsquo;t include it in this post to not litter it
+with unneeded data but if you need you can ask me and I will send them via
+email.</p>
+<p>To use this code you just run</p>
+<pre tabindex="0"><code>java Deobfuscator.java -138372992564127
+</code></pre><p>It will print back deobfusctaed string. Then I did a little more code magick and
+deobfuscated all integers back to their string representations.</p>
+<h2 id="decoding-encrypted-payloads">Decoding encrypted payloads</h2>
+<p>After getting real strings it got easier to find places where interesting parts
+of code execution is happening. With this we find that github file object is
+directly embedded into the apk and is being simply loaded on startup and
+updates.</p>
+<p>So the app loads this encoded file from github and proceeds to decoding. After
+it sae version number, caches the file and shows a notification with a message
+from that decoded file (from &lsquo;changelogs&rsquo; field). So what is the decoding method?</p>
+<p>To be honest I got a little lazy and didn&rsquo;t spend much time trying to figure out
+what is begin used here. Maybe it is a custom algorithm or more probable it is
+again some helper library.</p>
+<p>Here is a version of the code that does decryption of the downloaded file:</p>
+<pre tabindex="0"><code>class Decryption {
+    public static int a(int i, int i2, int i3, int i4, int i5, int[] iArr) {
+        return ((i ^ i2) + (iArr[(i4 &amp; 3) ^ i5] ^ i3)) ^ (((i3 &gt;&gt;&gt; 5) ^ (i2 &lt;&lt; 2)) + ((i2 &gt;&gt;&gt; 3) ^ (i3 &lt;&lt; 4)));
+    }
+
+    public static byte[] f(int[] iArr, boolean z) {
+        int length = iArr.length &lt;&lt; 2;
+        if (z) {
+            int i = iArr[iArr.length - 1];
+            int i2 = length - 4;
+            if (i &lt; i2 - 3 || i &gt; i2) {
+                return null;
+            }
+            length = i;
+        }
+        byte[] bArr = new byte[length];
+        for (int i3 = 0; i3 &lt; length; i3++) {
+            bArr[i3] = (byte) (iArr[i3 &gt;&gt;&gt; 2] &gt;&gt;&gt; ((i3 &amp; 3) &lt;&lt; 3));
+        }
+        return bArr;
+    }
+
+    public static int[] g(byte[] bArr, boolean z) {
+        int[] iArr;
+        int length = (bArr.length &amp; 3) == 0 ? bArr.length &gt;&gt;&gt; 2 : (bArr.length &gt;&gt;&gt; 2) + 1;
+        if (z) {
+            iArr = new int[length + 1];
+            iArr[length] = bArr.length;
+        } else {
+            iArr = new int[length];
+        }
+        int length2 = bArr.length;
+        for (int i = 0; i &lt; length2; i++) {
+            int i2 = i &gt;&gt;&gt; 2;
+            iArr[i2] = iArr[i2] | ((bArr[i] &amp; 255) &lt;&lt; ((i &amp; 3) &lt;&lt; 3));
+        }
+        return iArr;
+    }
+
+    public static final byte[] b(byte[] bArr, byte[] bArr2) {
+        byte[] bArr3 = bArr2;
+        if (bArr.length == 0) {
+            return bArr;
+        }
+        int[] g = g(bArr, false);
+        int i = 16;
+        if (bArr3.length != 16) {
+            byte[] bArr4 = new byte[16];
+            if (bArr3.length &lt; 16) {
+                i = bArr3.length;
+            }
+            System.arraycopy(bArr3, 0, bArr4, 0, i);
+            bArr3 = bArr4;
+        }
+        int[] g2 = g(bArr3, false);
+        int length = g.length - 1;
+        if (length &gt;= 1) {
+            int i2 = g[0];
+            for (int i3 = ((52 / (length + 1)) + 6) * (-1638454863); i3 != 0; i3 -= -1638454863) {
+                int i4 = (i3 &gt;&gt;&gt; 2) &amp; 3;
+                int i5 = i2;
+                int i6 = length;
+                while (i6 &gt; 0) {
+                    int i7 = i6 - 1;
+                    i5 = g[i6] - a(i3, i5, g[i7], i6, i4, g2);
+                    g[i6] = i5;
+                    i6 = i7;
+                }
+                i2 = g[0] - a(i3, i5, g[length], i6, i4, g2);
+                g[0] = i2;
+            }
+        }
+        return f(g, false);
+    }
+
+
+    static String readEntireFile(String path) throws IOException {
+        Path fileName = Path.of(path);
+        String str = Files.readString(fileName);
+        return str;
+    }
+
+    public static void main(String[] args) {
+        String filename = &#34;./content.data&#34;;
+
+        if(args.length == 0) {
+            System.err.println(&#34;You didn&#39;t provide file as argument. Using default: &#34; + filename);
+        }
+        else if(args.length == 1) {
+            filename = args[0];
+        }
+        else {
+            System.err.println(&#34;Usage: java Main.java &lt;filename&gt;&#34;);
+            System.exit(13);
+        }
+
+        try {
+            String str = readEntireFile(filename);
+
+            if(str.charAt(str.length() - 1) == 10) {
+                str = str.substring(0, str.length() - 1);
+            }
+
+            byte[] bytes = Base64.getDecoder().decode(str);
+            byte[] resultBytes = b(bytes, &#34;...|...&#34;.getBytes(&#34;UTF-8&#34;));
+            System.out.println(new String(resultBytes));
+
+        } catch(Exception e) {
+            System.out.println(e.toString());
+        }
+    }
+}
+</code></pre><p>You can run it with this line:</p>
+<pre tabindex="0"><code>java Decryption.java &lt;filename&gt;
+</code></pre><p>This will print back decoded contents which in this case is just a regular json
+string. It looks something like this:</p>
+<pre tabindex="0"><code>{
+    &#34;Payloads&#34;: [
+        {
+            &#34;port&#34;: &#34;80&#34;,
+            &#34;host&#34;: &#34;www.yellowpepper.com&#34;,
+            &#34;friendly_name&#34;: &#34;🇹🇹 Trinidad and Tobago bmobile 02&#34;,
+            &#34;sausage&#34;: &#34;&#34;,
+            &#34;payload&#34;: &#34;GET / HTTP/1.1[crlf]Host: [cf][crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf]Connection: Upgrade[crlf][crlf]&#34;,
+            &#34;query&#34;: &#34;normal&#34;,
+            &#34;category&#34;: &#34;ocsws&#34;,
+            &#34;message&#34;: &#34;&#34;,
+            &#34;method&#34;: &#34;http&#34;,
+            &#34;sslws&#34;: &#34;false&#34;,
+            &#34;useDnsForward&#34;: &#34;true&#34;,
+            &#34;isHostSni&#34;: &#34;false&#34;,
+            &#34;isAutoSelect&#34;: &#34;true&#34;,
+            &#34;dothost&#34;: &#34;&#34;
+        }
+        ...
+        ...
+    ],
+    &#34;Free_servers&#34;: [
+        {
+            &#34;server_name&#34;: &#34;🇬🇧 UDP UK (London)&#34;,
+            &#34;server_host&#34;: &#34;udp-uk1.maxcdnify.org;udp-uk2.maxcdnify.org;udp-uk3.maxcdnify.org;udp-uk4.maxcdnify.org&#34;,
+            &#34;server_port&#34;: &#34;&#34;,
+            &#34;server_udp_port&#34;: &#34;&#34;,
+            &#34;ssl_port&#34;: &#34;&#34;,
+            &#34;category&#34;: &#34;ocsudp&#34;,
+            &#34;squid_proxy&#34;: &#34;udp-uk1.maxcdnify.org;udp-uk2.maxcdnify.org;udp-uk3.maxcdnify.org;udp-uk4.maxcdnify.org&#34;,
+            &#34;squid_port&#34;: &#34;&#34;,
+            &#34;dns_proxy&#34;: &#34;&#34;,
+            &#34;custom_cert&#34;: &#34;&#34;,
+            &#34;username&#34;: &#34;&#34;,
+            &#34;password&#34;: &#34;&#34;
+        },
+        ...
+        ...
+        ...
+    ],
+    &#34;Premium_servers&#34;: [],
+    &#34;Vip_servers&#34;: [],
+    &#34;Private_servers&#34;: [],
+    &#34;Version&#34;: &#34;6.2:62.0&#34;,
+    &#34;Changelogs&#34;: &#34;🌎 Network Updates\n\n- If not connected, please try other network options from this app\n- اگر متصل نیستید، لطفاً سایر گزینه های شبکه را از این برنامه امتحان کنید\n- Baglanmadyk bolsaňyz, bu programmadan beýleki ulgam opsiýalaryny synap görüň&#34;
+}
+</code></pre><p>Full file is too big to put directly here so here is a link to a full contents
+if you want to have a look: <a href="/posts/bd_net_vpn/decrypted_file.json">decrypted_file.json</a></p>
+<p>So here we see a version, changelog mesasge on update, payloads for domain
+fronting and free servers list. Premium, vip and private servers are missing and
+I couldn&rsquo;t find a way to buy a pro version to load those. I guess it might be
+added in the future or there is some secret way to get those which I haven&rsquo;t yet
+looked at.</p>
+<p>It looks ok and don&rsquo;t see anything malicious here (even though as we have seen
+before it is pretty easy to make it malicious in one update from the previous
+post).</p>
+<h2 id="how-does-this-vpn-work">How does this VPN work?</h2>
+<p>So from quick skimming through &ldquo;code&rdquo; and basic testing it looks like it is not
+a regular VPN used for security and in corporate environments but rather a tool
+to circumvent blocking of resources in places where they took blocking very
+seriously. The most important tool here is ofcourse <strong>&ldquo;domain fronting&rdquo;</strong> where
+they pretend to be some <strong>allowed</strong> website behind CDN and &ldquo;tricking&rdquo; CDN&rsquo;s to
+connect to another site that will do routing.</p>
+<p><img src="/posts/bd_net_vpn/domain-fronting.png" alt="Domain fronting illustration"></p>
+<p>So user from within the app can select a list of payloads which correspond to a
+specific country. I guess each country has different filters and they setup
+different payloads depending on the country. So if we look at the example json
+above the app will try to connect to the <a href="https://www.yellowpepper.com">www.yellowpepper.com</a> website which is
+behind cloudflare CDN. After connection it will send &lsquo;payload&rsquo; of</p>
+<pre tabindex="0"><code>GET / HTTP/1.1[crlf]Host: [cf][crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf]Connection: Upgrade[crlf][crlf]
+</code></pre><p>but substitute params in square brackets with their corresponding values. crlf
+is just \r\n line terinator, ua - user agent and etc. The most interesting part
+is [cf]. It looks like it substitures is with one of server_host values from
+&ldquo;Free_servers&rdquo; list. So above line will become</p>
+<pre tabindex="0"><code>GET / HTTP/1.1
+Host: udp-uk1.maxcdnify.org
+User-Agent: Mozilla/5.0 (Linux; Android 5.0; SAMSUNG SM-N900T Build/LRX21V) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/2.1 Chrome/34.0.1847.76 Mobile Safari/537.36
+Upgrade: websocket
+Connection: Upgrade
+</code></pre><p>What type hidden connection between client and vpn server depends on selected
+type. I have not done deep inspection but it looks like they do openvpn (hidden
+inside regular http), Xray, and probably others. By looking at the example above
+and seeing it is trying to do websocket communication I can assumet it is Xray.
+So when cloudlare recieves this requrest it will read &lsquo;Host&rsquo; field and redirect
+connection to a totally different host rather to the one that was used to
+initiate socket connection.</p>
+<p>This example is pretty simple but if we look at othere there will be params like
+[split] which will try to send totally different host in the first packet to
+full DPI and send totally different host and request in the second packet on the
+same connection. This will probably fool a lot of blocking software which make
+decision based on the first packet.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>I had fun playing around with this app. For my taste they did too much
+security by obscurity. They tried to stop execution by checking hash, encrypting
+all the string, checking if phone is root/emulator/x86 and few other techniques.
+Yet it still didn&rsquo;t help hiding information.</p>
+<p>Storing all the data in a wide open github repo is also very questionable solution.
+The reasoning could have been that blocking countries will not block github.
+Maybe it work but I would need to some people from those countries to verify
+that. I have not tested but it could be that &lsquo;git pull&rsquo; and &lsquo;object storage&rsquo;
+might be served from different places.</p>
+<p>Apart from that it is an interesting solution and deserves a bit more time of
+looking into what approaches they are using to make their app harder to explore
+and methods to circumvent blocking of resources. If you guys have interesting
+apps to look at you can send me a list. Not promising to look into it but will
+definetely add to my &ldquo;apps to look into when I have free time&rdquo; list.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://lecromee.github.io/" >
+    &copy;  Greek geek 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+
+
+
+<script>
+  var _paq = window._paq = window._paq || [];
+   
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://lecromee.matomo.cloud/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src='//cdn.matomo.cloud/lecromee.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+
+
+</footer>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PGNHQNNNEJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PGNHQNNNEJ');
+</script>
+
+  </body>
+</html>
