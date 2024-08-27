@@ -12,11 +12,11 @@
     
     
     
-      <meta name="robots" content="noindex, nofollow">
+      <meta name="robots" content="index, follow">
     
 
     
-<link rel="stylesheet" href="/ananke/css/main.min.css" >
+<link rel="stylesheet" href="/ananke/css/main.min.4d0ad2fda1f683a0499138a682c64f07eb8472f1b7e1a47749428d2ad2353a73.css" >
 
 
 
@@ -43,17 +43,22 @@
   <meta itemprop="description" content="Introduction Nothing special here. Got some free time to play around and decided to explore a free VPN from android play store in hopes to find something interesting, solve some riddle and just have fun. For this experiment I chose “BD NET VPN”. It is freely avaible for any android phone from Google play store: BD NET VPN. There is nothing special in it. My interest grabbed that it was loading it encrypted configuration stored in github and I have experience finding interesting apps that use this method (not this time though).">
   <meta itemprop="datePublished" content="2024-08-15T03:28:19+05:00">
   <meta itemprop="dateModified" content="2024-08-15T03:28:19+05:00">
-  <meta itemprop="wordCount" content="2368">
+  <meta itemprop="wordCount" content="2517">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Exploring inner workings of a random free android VPN">
   <meta name="twitter:description" content="Introduction Nothing special here. Got some free time to play around and decided to explore a free VPN from android play store in hopes to find something interesting, solve some riddle and just have fun. For this experiment I chose “BD NET VPN”. It is freely avaible for any android phone from Google play store: BD NET VPN. There is nothing special in it. My interest grabbed that it was loading it encrypted configuration stored in github and I have experience finding interesting apps that use this method (not this time though).">
 
+      
+  
+
+
+    
 	
 
     <script src="/js/utils.js"></script>
   </head>
 
-  <body class="ma0 avenir bg-near-white">
+  <body class="ma0 avenir bg-near-white production">
 
     
    
@@ -473,16 +478,26 @@ Upgrade: websocket
 Connection: Upgrade
 </code></pre><p>What type hidden connection between client and vpn server depends on selected
 type. I have not done deep inspection but it looks like they do openvpn (hidden
-inside regular http), Xray, and probably others. By looking at the example above
-and seeing it is trying to do websocket communication I can assumet it is Xray.
-So when cloudlare recieves this requrest it will read &lsquo;Host&rsquo; field and redirect
-connection to a totally different host rather to the one that was used to
-initiate socket connection.</p>
+inside regular http), Xray, psiphone and probably others. By looking at the
+example above and seeing it is trying to do websocket communication I can
+assumet it is Xray. So when cloudlare recieves this requrest it will read &lsquo;Host&rsquo;
+field and redirect connection to a totally different host rather to the one that
+was used to initiate socket connection.</p>
 <p>This example is pretty simple but if we look at othere there will be params like
 [split] which will try to send totally different host in the first packet to
 full DPI and send totally different host and request in the second packet on the
 same connection. This will probably fool a lot of blocking software which make
 decision based on the first packet.</p>
+<h2 id="fun-sidenote">Fun sidenote</h2>
+<p>While I was exploreing decompiled code I found some place that had only java
+bytecode. So I had to manually decompile one of the critical paths which looked
+a lot like an encryption mechanism. It looked a lot some some strange table
+lookup with strange shifts and code was very strange. From byte code it looked
+like some strange consecutive while loops with wrapped into one big while loop.</p>
+<p>After some time it struck me that it was just optimzed version of base64
+encoding. I replaced it with system&rsquo;s impolemetaion and everything worked as
+expected. Glad that I had once implemented both versions of base64 my brain
+could pattern match my old memories.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>I had fun playing around with this app. For my taste they did too much
 security by obscurity. They tried to stop execution by checking hash, encrypting
@@ -492,7 +507,9 @@ Yet it still didn&rsquo;t help hiding information.</p>
 The reasoning could have been that blocking countries will not block github.
 Maybe it work but I would need to some people from those countries to verify
 that. I have not tested but it could be that &lsquo;git pull&rsquo; and &lsquo;object storage&rsquo;
-might be served from different places.</p>
+might be served from different places. Also there are different VPN&rsquo;s on their
+Android Playstore page with different reposities on the same github account. All
+of them are decoded with same algorithm which is far from secure data storage.</p>
 <p>Apart from that it is an interesting solution and deserves a bit more time of
 looking into what approaches they are using to make their app harder to explore
 and methods to circumvent blocking of resources. If you guys have interesting
@@ -531,22 +548,20 @@ definetely add to my &ldquo;apps to look into when I have free time&rdquo; list.
 
 
 
-<script>
-  var _paq = window._paq = window._paq || [];
-   
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="https://lecromee.matomo.cloud/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.async=true; g.src='//cdn.matomo.cloud/lecromee.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
 
 
-</footer>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -558,6 +573,31 @@ definetely add to my &ldquo;apps to look into when I have free time&rdquo; list.
 
   gtag('config', 'G-PGNHQNNNEJ');
 </script>
+
+
+
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(98177895, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/98177895" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+
+
+
+</footer>
+
+
 
   </body>
 </html>
